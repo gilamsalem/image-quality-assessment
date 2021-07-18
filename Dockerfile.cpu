@@ -1,5 +1,12 @@
 FROM tensorflow/tensorflow:2.0.0-py3
 
+ENV HTTP_PROXY "http://webproxy:3128"
+ENV http_proxy "http://webproxy:3128"
+ENV HTTPS_PROXY "http://webproxy:3128"
+ENV https_proxy "http://webproxy:3128"
+RUN export http_proxy=http://webproxy:3128 && export https_proxy=http://webproxy:3128
+COPY apt-get-proxy /etc/apt/apt.conf.d/
+
 # Install system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
       bzip2 \
