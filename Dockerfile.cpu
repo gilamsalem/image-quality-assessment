@@ -24,6 +24,7 @@ COPY models /models
 
 RUN pip install --upgrade pip
 RUN pip install Flask
-RUN pip install -r requirements.txt
+
+RUN pip install -r src/requirements.txt
 
 ENV PYTHONPATH='/src/:$PYTHONPATH'
